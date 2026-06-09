@@ -1,0 +1,13 @@
+<?xml version = "1.0"?>
+<robot xmlns:xacro = "http://www.ros.org/wiki/xacro">
+<xacro:property name="red_val" value="1 0 0 1"/>
+<xacro:property name="green_val" value="0 1 0 1"/> 
+<xacro:property name="blue_val" value="0 0 1 1"/> 
+<xacro:property name="black_val" value="0 0 0 1"/> 
+
+<!-- Global Materials -->
+<material name="red"><color rgba="${red_val}"/></material>
+<material name="green"><color rgba="${green_val}"/></material>
+<material name="blue"><color rgba="${blue_val}"/></material>
+<material name="black"><color rgba="${black_val}"/></material> 
+</robot>

@@ -1,0 +1,135 @@
+<?xml version = "1.0"?>
+<robot xmlns:xacro = "http://www.ros.org/wiki/xacro">
+  
+  <link name = "base_link">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find diff_robot_description)/meshes/base_link.stl" scale="0.003 0.003 0.003"/> 
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <material name = "red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size = "0.8 0.5 0.2"/> 
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </collision>
+  </link>
+
+  <joint name = "base_front_left_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "front_left_wheel"/>
+    <origin xyz = "0.25 0.3 -0.05" rpy = "1.57 0 0"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+  <link name = "front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <material name = "black"/>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 -1"/>
+    </collision>
+  </link>
+
+  <link name = "front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <material name = "black"/>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </collision>
+  </link>
+
+  <joint name = "base_front_right_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "front_right_wheel"/>
+    <origin xyz = "0.25 -0.3 -0.05" rpy = "1.57 0 0"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+  <joint name = "base_rear_left_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "rear_left_wheel"/>
+    <origin xyz = "-0.25 0.3 -0.05" rpy = "1.57 0 0"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+  <link name = "rear_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <material name = "black"/>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </collision>
+  </link>
+
+
+  <link name = "rear_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <material name = "black"/>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius = "0.1" length = "0.07"/>
+      </geometry>
+      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    </collision>
+  </link>
+
+  <joint name = "base_rear_right_wheel_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "rear_right_wheel"/>
+    <origin xyz = "-0.25 -0.3 -0.05" rpy = "1.57 0 0"/>
+    <axis xyz = "0 0 1"/>
+  </joint>
+
+
+    <link name = "lidar">
+        <visual>
+        <geometry>
+            <cylinder radius = "0.1" length = "0.05"/>
+        </geometry>
+        <material name = "blue"/>
+        <origin xyz = "0 0 0" rpy = "0 0 0"/>
+        </visual>
+        <collision>
+        <geometry>
+            <cylinder radius = "0.1" length = "0.05"/>
+        </geometry>
+        <origin xyz = "0 0 0" rpy = "0 0 0"/>
+        </collision>
+    </link>
+
+  <joint name = "base_lidar_joint" type = "continuous">
+    <parent link = "base_link"/>
+    <child link = "lidar"/>
+    <origin xyz = "0 0 0.1" rpy = "0 0 0"/>
+  </joint>
+</robot>
